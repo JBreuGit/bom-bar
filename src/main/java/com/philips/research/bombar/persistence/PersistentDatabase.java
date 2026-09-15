@@ -36,7 +36,7 @@ public class PersistentDatabase implements PersistentStore {
 
     @Override
     public List<Project> findProjects(String fragment) {
-        return new ArrayList<>(projectRepository.findFirst50ByTitleContainingIgnoreCaseOrderByLastUpdateDesc(fragment));
+        return new ArrayList<>(projectRepository.findFirst50ByTitleContainingIgnoreCaseOrderByLastUpdateDescIdDesc(fragment));
     }
 
     @Override
@@ -85,5 +85,6 @@ public class PersistentDatabase implements PersistentStore {
     @Override
     public void deleteDependencies(Project project) {
         dependencyRepository.deleteByProject((ProjectEntity) project);
+        project.clearDependencies();
     }
 }

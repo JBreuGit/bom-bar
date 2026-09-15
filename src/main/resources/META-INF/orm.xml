@@ -4,24 +4,24 @@
   -->
 
 <!--suppress JpaDataSourceORMDomInspection -->
-<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" version="2.0">
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm" version="3.0">
+    <sequence-generator name="hibernate_sequence" sequence-name="hibernate_sequence" allocation-size="1"/>
     <mapped-superclass class="com.philips.research.bombar.core.domain.Package" access="FIELD">
         <attributes>
             <basic name="reference" optional="false">
-                <lob/>
+                <column column-definition="CLOB"/>
             </basic>
             <basic name="name" optional="false">
-                <lob/>
+                <column column-definition="CLOB"/>
             </basic>
             <basic name="vendor">
-                <lob/>
+                <column column-definition="CLOB"/>
             </basic>
             <basic name="homepage">
-                <column nullable="true" column-definition="clob"/>
-                <lob/>
+                <column nullable="true" column-definition="CLOB"/>
             </basic>
             <basic name="description">
-                <lob/>
+                <column column-definition="CLOB"/>
             </basic>
             <basic name="acceptance">
                 <column length="1"/>
@@ -41,7 +41,7 @@
                 <column length="16" column-definition="VARBINARY NOT NULL"/>
             </basic>
             <basic name="title" optional="false">
-                <lob/>
+                <column column-definition="CLOB"/>
             </basic>
             <basic name="lastUpdate" optional="true"/>
             <basic name="distribution" optional="false">
@@ -61,8 +61,7 @@
             <element-collection name="packageExemptions">
                 <map-key-class class="java.net.URI"/>
                 <map-key-column name="package_ref" nullable="false"/>
-                <column name="rationale" nullable="false"/>
-                <lob/>
+                <column name="rationale" nullable="false" column-definition="CLOB"/>
                 <collection-table name="package_exemptions">
                     <join-column name="project_id" referenced-column-name="id" table="projects" nullable="false"/>
                 </collection-table>
@@ -74,12 +73,11 @@
         <attributes>
             <basic name="key"/>
             <basic name="title" optional="false">
-                <lob/>
+                <column column-definition="CLOB"/>
             </basic>
             <basic name="version" optional="false"/>
             <basic name="license" optional="false">
-                <column nullable="false"/>
-                <lob/>
+                <column nullable="false" column-definition="CLOB"/>
             </basic>
             <basic name="isRoot" optional="false">
                 <column name="is_root" nullable="false"/>
@@ -91,12 +89,10 @@
                 <column name="is_delivered" nullable="false"/>
             </basic>
             <basic name="exemption" optional="true">
-                <column nullable="true"/>
-                <lob/>
+                <column nullable="true" column-definition="CLOB"/>
             </basic>
             <basic name="purl" optional="true">
-                <column nullable="true"/>
-                <lob/>
+                <column nullable="true" column-definition="CLOB"/>
             </basic>
             <many-to-one name="pkg" fetch="LAZY"
                          target-entity="com.philips.research.bombar.persistence.PackageEntity">

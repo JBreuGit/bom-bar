@@ -14,5 +14,5 @@ import java.util.UUID;
 public interface ProjectRepository extends JpaRepository<ProjectEntity, Long> {
     Optional<ProjectEntity> findFirstByUuid(UUID projectId);
 
-    List<ProjectEntity> findFirst50ByTitleContainingIgnoreCaseOrderByLastUpdateDesc(String name);
+    List<ProjectEntity> findFirst50ByTitleContainingIgnoreCaseOrderByLastUpdateDescIdDesc(String name);
 }

@@ -25,7 +25,7 @@ public class JacksonConfiguration {
                 .configure(MapperFeature.DEFAULT_VIEW_INCLUSION, true)
                 .setSerializationInclusion(JsonInclude.Include.NON_NULL)
                 .setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.NON_PRIVATE)
-                .setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE)
+                .setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE)
                 .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
                 .registerModule(new JavaTimeModule());
     }

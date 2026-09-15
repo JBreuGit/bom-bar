@@ -9,7 +9,7 @@ import com.philips.research.bombar.core.domain.Dependency;
 import com.philips.research.bombar.core.domain.Project;
 import pl.tlinkowski.annotation.basic.NullOr;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Access(AccessType.FIELD)
@@ -20,7 +20,7 @@ class DependencyEntity extends Dependency {
     final Project project;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "hibernate_sequence")
     @SuppressWarnings({"unused", "RedundantSuppression"})
     private @NullOr Long id;
 

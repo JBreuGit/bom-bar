@@ -16,7 +16,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -56,7 +56,7 @@ class ProjectsRouteTest {
     private static final String LICENSES_URL = PROJECT_URL + "/licenses";
     private static final String OBLIGATION_URL = PROJECT_URL + "/obligations";
 
-    @MockBean
+    @MockitoBean
     private ProjectService service;
 
     @Autowired

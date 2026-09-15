@@ -33,7 +33,7 @@ description.)
 
 ## Dependencies
 
-The service requires at least Java 11.
+The service requires at least Java 21.
 
 ## Installation
 
